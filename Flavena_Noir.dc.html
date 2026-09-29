@@ -15,16 +15,17 @@
 <style>
 /* Paleta — sve boje sajta (i 3D molekule) čitaju se odavde */
 :root{
-  --bg:#06070B;--bg-rgb:6,7,11;
-  --card:#0D1017;--panel:#0B0D13;
-  --ink:#EEE9DD;--ink-rgb:238,233,221;
-  --body:#C9C5BB;--muted:#8E919C;
-  --brand:#67B50A;--brand-rgb:103,181,10;
-  --accent:#8FD63A;--accent-rgb:143,214,58;
-  --on-brand:#06070B;
-  --glow:#2F55E0;--glow-rgb:20,54,162;
+  --bg:#FFFFFF;--bg-rgb:255,255,255;
+  --card:#F3F5F0;--panel:#FFFFFF;
+  --ink:#141820;--ink-rgb:20,24,32;
+  --body:#3D4350;--muted:#6B7180;
+  --brand:#68B409;--brand-rgb:104,180,9;
+  --accent:#4A8F05;--accent-rgb:74,143,5;
+  --on-brand:#FFFFFF;
+  --glow:#12389C;--glow-rgb:18,56,156;
   --warm:#E9D9B0;--warm-rgb:233,217,176;
-  --atom-c:#2A3560;--atom-h:#EFE6D2;
+  --atom-c:#12389C;--atom-h:#C8CDD6;
+  --scrim-rgb:20,24,32;
 }
 html,body{margin:0;background:var(--bg);color:var(--ink);font-family:'Geist',system-ui,sans-serif;-webkit-font-smoothing:antialiased;overflow-x:clip}
 html.lenis,html.lenis body{height:auto}
@@ -75,7 +76,7 @@ a:hover{color:var(--accent)}
 
 <main>
   <section id="top" data-screen-label="01 Hero" style="position:relative;height:100svh;min-height:640px;overflow:hidden">
-    <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(60% 50% at 70% 40%,rgba(var(--glow-rgb),.28),transparent 70%),radial-gradient(40% 40% at 20% 90%,rgba(var(--brand-rgb),.10),transparent 70%)"></div>
+    <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(60% 50% at 70% 40%,rgba(var(--glow-rgb),.10),transparent 70%),radial-gradient(40% 40% at 20% 90%,rgba(var(--brand-rgb),.12),transparent 70%)"></div>
         <div data-hero-in="1" style="position:absolute;inset:0;display:flex;flex-direction:column;justify-content:space-between;padding:110px clamp(20px,4vw,48px) clamp(28px,4vw,48px);pointer-events:none">
       <div style="display:flex;justify-content:space-between;gap:16px;font:500 11px/1.6 'Geist Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">
         <span>(01) Uvoz i distribucija aroma</span>
@@ -129,7 +130,7 @@ a:hover{color:var(--accent)}
 
   <section id="vanila" data-screen-label="03 Vanilin" data-mol-sec="1" style="position:relative;height:440vh">
     <div style="position:sticky;top:0;height:100vh;overflow:hidden">
-      <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(50% 60% at 68% 50%,rgba(var(--warm-rgb),.10),transparent 70%)"></div>
+      <div aria-hidden="true" style="position:absolute;inset:0;background:radial-gradient(50% 60% at 68% 50%,rgba(var(--glow-rgb),.06),transparent 70%)"></div>
       <canvas data-mol="1" aria-hidden="true" style="position:absolute;inset:0;width:100%;height:100%;display:block"></canvas>
       <div style="position:absolute;top:110px;left:clamp(20px,4vw,48px);right:clamp(20px,4vw,48px);display:flex;justify-content:space-between;gap:16px;font:500 11px/1.6 'Geist Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--muted);pointer-events:none">
         <span>(03) Molekula ukusa — Vanila</span>
@@ -166,9 +167,9 @@ a:hover{color:var(--accent)}
         <sc-for list="{{ cats }}" as="c" hint-placeholder-count="5">
           <button onClick="{{ c.onOpen }}" data-card="1" style="flex:none;width:clamp(270px,28vw,420px);height:min(64vh,600px);padding:0;border:0;background:var(--card);color:var(--ink);text-align:left;cursor:pointer;display:flex;flex-direction:column;border-radius:4px;overflow:hidden;transition:transform .6s cubic-bezier(.2,.8,.2,1)" style-hover="transform:translateY(-12px)">
             <span style="position:relative;flex:1;overflow:hidden;display:block">
-              <img src="{{ c.img }}" alt="{{ c.name }}" loading="lazy" data-par="1" style="position:absolute;inset:0 -12%;width:124%;height:100%;object-fit:cover;filter:saturate(.8) brightness(.72) contrast(1.05)">
+              <img src="{{ c.img }}" alt="{{ c.name }}" loading="lazy" data-par="1" style="position:absolute;inset:0 -12%;width:124%;height:100%;object-fit:cover;filter:saturate(.95)">
               <span style="position:absolute;inset:0;background:linear-gradient(transparent 50%,var(--card))"></span>
-              <span style="position:absolute;top:18px;left:18px;right:18px;display:flex;justify-content:space-between;font:500 10px/1 'Geist Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)"><span>{{ c.num }} / 13</span><span>{{ c.groupLabel }}</span></span>
+              <span style="position:absolute;top:18px;left:18px;right:18px;display:flex;justify-content:space-between;font:500 10px/1 'Geist Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.45)"><span>{{ c.num }} / 13</span><span>{{ c.groupLabel }}</span></span>
             </span>
             <span style="display:flex;flex-direction:column;gap:10px;padding:20px 22px 24px">
               <span style="font:500 10px/1 'Geist Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)">{{ c.kicker }}</span>
@@ -220,7 +221,7 @@ a:hover{color:var(--accent)}
   </section>
 
   <section id="kontakt" data-screen-label="07 Kontakt" style="position:relative;overflow:hidden;padding:clamp(100px,12vw,180px) clamp(20px,4vw,48px) 0;border-top:1px solid rgba(var(--ink-rgb),.12)">
-    <div aria-hidden="true" style="position:absolute;left:50%;top:40%;width:900px;height:900px;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(var(--brand-rgb),.16),transparent);pointer-events:none"></div>
+    <div aria-hidden="true" style="position:absolute;left:50%;top:40%;width:900px;height:900px;transform:translate(-50%,-50%);background:radial-gradient(closest-side,rgba(var(--brand-rgb),.12),transparent);pointer-events:none"></div>
     <div style="position:relative;max-width:1320px;margin:0 auto;display:flex;flex-direction:column;gap:clamp(48px,6vw,80px)">
       <span style="font:500 11px/1.6 'Geist Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)">(07) Kontakt</span>
       <div style="display:flex;justify-content:space-between;align-items:center;gap:48px;flex-wrap:wrap">
@@ -244,13 +245,13 @@ a:hover{color:var(--accent)}
 
 <sc-if value="{{ isOpen }}" hint-placeholder-val="{{ false }}">
   <div role="dialog" aria-modal="true" aria-label="{{ cur.name }}" style="position:fixed;inset:0;z-index:120;display:flex;justify-content:flex-end">
-    <button onClick="{{ close }}" aria-label="Zatvori" style="position:absolute;inset:0;border:0;background:rgba(var(--bg-rgb),.72);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);cursor:pointer"></button>
+    <button onClick="{{ close }}" aria-label="Zatvori" style="position:absolute;inset:0;border:0;background:rgba(var(--scrim-rgb),.45);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);cursor:pointer"></button>
     <div data-lenis-prevent="1" data-drawer="1" style="position:relative;width:min(760px,100%);height:100%;overflow-y:auto;background:var(--panel);border-left:1px solid rgba(var(--ink-rgb),.12);transform:translateX(100%);transition:transform .8s cubic-bezier(.77,0,.18,1)">
       <div style="position:relative;height:min(52vh,460px);overflow:hidden">
-        <sc-if value="{{ cur.img }}" hint-placeholder-val="{{ false }}"><img src="{{ cur.img }}" loading="lazy" alt="{{ cur.name }}" style="width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.85) brightness(.75)"></sc-if>
+        <sc-if value="{{ cur.img }}" hint-placeholder-val="{{ false }}"><img src="{{ cur.img }}" loading="lazy" alt="{{ cur.name }}" style="width:100%;height:100%;object-fit:cover;display:block;filter:saturate(.95)"></sc-if>
         <span style="position:absolute;inset:0;background:linear-gradient(transparent 40%,var(--panel))"></span>
         <button onClick="{{ close }}" style="position:absolute;top:20px;right:20px;width:48px;height:48px;border-radius:50%;border:1px solid rgba(var(--ink-rgb),.3);background:rgba(var(--bg-rgb),.5);color:var(--ink);font:400 20px/1 'Geist',sans-serif;cursor:pointer;backdrop-filter:blur(10px)" aria-label="Zatvori">✕</button>
-        <span style="position:absolute;left:clamp(24px,4vw,48px);top:28px;font:500 10px/1 'Geist Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--ink)">{{ cur.num }} / 13 · {{ cur.groupLabel }}</span>
+        <span style="position:absolute;left:clamp(24px,4vw,48px);top:28px;font:500 10px/1 'Geist Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.45)">{{ cur.num }} / 13 · {{ cur.groupLabel }}</span>
       </div>
       <div style="padding:0 clamp(24px,4vw,48px) 56px;margin-top:-60px;position:relative;display:flex;flex-direction:column;gap:28px">
         <span style="font:500 11px/1 'Geist Mono',monospace;letter-spacing:.16em;text-transform:uppercase;color:var(--accent)">{{ cur.kicker }}</span>
